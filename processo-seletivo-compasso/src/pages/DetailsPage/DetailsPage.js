@@ -4,6 +4,7 @@ import { DetailsContainer, Logo, LogoContainer } from './styled';
 import {goToHome} from '../../routes/coordinator';
 import { useHistory } from 'react-router-dom';
 import GlobalStateContext from '../../global/GlobalStateContext';
+import DetailCard from '../../components/DetailCard/DetailCard';
 
 const DetailsPage = () => {
     const history = useHistory()
@@ -21,6 +22,7 @@ const DetailsPage = () => {
                 <Logo src={logo} alt="logo"/>
                 GitUol
             </LogoContainer>
+            <DetailCard/>
         </DetailsContainer>
     )
 }
