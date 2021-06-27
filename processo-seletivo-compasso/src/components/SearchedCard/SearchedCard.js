@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -11,6 +11,7 @@ import { P, Imagem, StyledCard } from './styled';
 import { goToDetails } from '../../routes/coordinator';
 import { useHistory, useParams } from 'react-router-dom';
 import { getData, getUser } from '../../services/requests';
+import { CircularProgress } from '@material-ui/core';
 
 const useStyles = makeStyles({
   root: {
@@ -31,17 +32,18 @@ const SearchedCard = () => {
       getData(username, request, setUserData, history)
     }
 
+    useEffect(() => {
+      getUser( params.username, setUser)  
+    }, [])
+
     const renderUser = () => {
-    if (!user) {
-      getUser( params.username, setUser)
-      if (user === false) {
+      if (user === null) {
         return (
           <div>
-            <P>Usuário não encontrado</P>
+            <CircularProgress/>
           </div>
         )
-      } 
-    } else if (user) {
+      } else if (user) {
         return (
           <StyledCard className={classes.root}>
             <CardActionArea onClick={() => goToDetails(history, user.login)}>
@@ -69,6 +71,12 @@ const SearchedCard = () => {
               </Button>
             </CardActions>
           </StyledCard>
+        )
+      } else if (user === false) {
+        return (
+          <div>
+            <P>Usuário não encontrado</P>
+          </div>
         )
       }  
     }   
