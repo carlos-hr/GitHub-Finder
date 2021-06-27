@@ -10,7 +10,7 @@ import GlobalStateContext from '../../global/GlobalStateContext';
 import { P, Imagem, StyledCard } from './styled';
 import { goToDetails } from '../../routes/coordinator';
 import { useHistory, useParams } from 'react-router-dom';
-import { getData } from '../../services/requests';
+import { getData, getUser } from '../../services/requests';
 
 const useStyles = makeStyles({
   root: {
@@ -23,7 +23,7 @@ const useStyles = makeStyles({
 
 const SearchedCard = () => {
     const classes = useStyles();
-    const {user, setUsername, setUserData} = useContext(GlobalStateContext)
+    const {user, setUser, setUserData} = useContext(GlobalStateContext)
     const params = useParams()
     const history = useHistory()
 
@@ -33,7 +33,7 @@ const SearchedCard = () => {
 
     const renderUser = () => {
     if (!user) {
-      setUsername(params.username)
+      getUser( params.username, setUser)
       if (user === false) {
         return (
           <div>

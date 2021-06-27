@@ -10,7 +10,6 @@ const DetailsPage = () => {
     const history = useHistory()
     const {setUser} = useContext(GlobalStateContext)
 
-    
     const onClickLogo = (history, setUser) => {
         goToHome(history)
         setUser(null)

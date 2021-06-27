@@ -1,9 +1,10 @@
-import React from 'react';
-import { useContext } from 'react';
-import GlobalStateContext from '../../global/GlobalStateContext';
+import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import { GridContainer, TitleContainer } from './styled';
+import { useHistory, useParams } from 'react-router-dom';
+import { getData } from '../../services/requests';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,27 +18,46 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const DetailCard = () => {
-    const {userData} = useContext(GlobalStateContext)
+    const [localData, setLocalData] = useState([])
+    const history = useHistory()
     const classes = useStyles();
+    const params = useParams()
 
-    const datas = userData.map((data) => {
-        console.log(data)
+    useEffect(() => {
+        getData(params.username, params.request, setLocalData, history)
+    }, [])
+
+    const renderData = localData.map((data) => {
         return (
-            <Grid item xs={6}>
+            <Grid item xs={6} key={data.id}>
                 <Paper className={classes.paper}>
-                    Nome do repositório: {data.name}
+                    <strong>Nome do repositório:</strong> {data.name}
                     <br/>
-                    Linguagem: {data.language}
+                    <strong>Linguagem: </strong> {data.language}
                 </Paper>
             </Grid>
         )
     })
-    console.log("userData", userData)
+   
+    const title = () => {
+        if (params.request === "repos") {
+            return (
+                <TitleContainer>Repositórios do usuário</TitleContainer>
+            )  
+        } else if (params.request === "starred") {
+            return (
+                <TitleContainer>Repositórios mais visitados</TitleContainer>
+            )
+        }
+    }
     return (
         <div>
-            <Grid container spacing={2}>
-                {datas}
-            </Grid>
+            <GridContainer container spacing={2}>
+                <Grid item xs={12}>
+                    <Paper className={classes.paper}>{title()}</Paper>
+                </Grid>
+                {renderData}
+            </GridContainer>
         </div>
     )
 }
