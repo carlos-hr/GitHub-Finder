@@ -16,7 +16,7 @@ export const getData = (username, request, setUserData, history) => {
         goToDetails(history, username, request)
     })
     .catch((err) => {
-        console.log(err)
+        alert(err.response.data)
         setUserData(false)
     })
     
@@ -31,7 +31,7 @@ export const getUser = ( username, setUser) => {
         })
         .catch((err) => {
             setUser(false)
-            console.log(err.response.data)
+            alert(err.response.data)
         })
     }   
 }
