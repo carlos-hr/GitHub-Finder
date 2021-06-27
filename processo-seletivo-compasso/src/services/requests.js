@@ -16,7 +16,7 @@ export const getData = (username, request, setUserData, history) => {
         goToDetails(history, username, request)
     })
     .catch((err) => {
-        alert(err.response.data)
+        alert(err.response.data.message)
         setUserData(false)
     })
     
@@ -28,11 +28,9 @@ export const getUser = ( username, setUser) => {
         axios.get(`${BASE_URL}/${username}`, header)
         .then((res) => {
             setUser(res.data)
-            console.log("entrou aqui")
         })
         .catch((err) => {
             setUser(false)
-            console.log("entroua")
             alert(err.response.data.message)
         })
     }   
