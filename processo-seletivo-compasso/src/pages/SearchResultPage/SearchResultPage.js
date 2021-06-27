@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import SearchField from '../../components/SearchField/SearchField';
-import SearchedCard from '../../components/SearchedCard/SearchCard';
+import SearchedCard from '../../components/SearchedCard/SearchedCard';
 import { HomeContainer, Logo, LogoContainer } from './styled';
 import logo from '../../assets/logo.png';
 import { useHistory } from 'react-router-dom';

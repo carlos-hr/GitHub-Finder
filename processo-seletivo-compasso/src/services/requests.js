@@ -10,7 +10,7 @@ const header = {
 
 export const getData = (username, request, setUserData, history) => {
     
-    axios.get(`${BASE_URL}/${username}/${request}`)
+    axios.get(`${BASE_URL}/${username}/${request}`, header)
     .then((res) => {
         setUserData(res.data)
         goToDetails(history, username, request)
@@ -25,7 +25,7 @@ export const getData = (username, request, setUserData, history) => {
 export const getUser = ( username, setUser) => {
 
     if(username !== null) {
-        axios.get(`${BASE_URL}/${username}`)
+        axios.get(`${BASE_URL}/${username}`, header)
         .then((res) => {
             setUser(res.data)
         })
