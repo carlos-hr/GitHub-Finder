@@ -28,10 +28,12 @@ export const getUser = ( username, setUser) => {
         axios.get(`${BASE_URL}/${username}`, header)
         .then((res) => {
             setUser(res.data)
+            console.log("entrou aqui")
         })
         .catch((err) => {
             setUser(false)
-            alert(err.response.data)
+            console.log("entroua")
+            alert(err.response.data.message)
         })
     }   
 }
