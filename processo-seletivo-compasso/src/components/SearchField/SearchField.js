@@ -1,20 +1,19 @@
 import React,  { useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import useForm from '../../hooks/useForm';
 import GlobalStateContext from '../../global/GlobalStateContext'
 import { goToResults } from '../../routes/coordinator';
 import { useHistory } from 'react-router-dom';
+import { StyledInput } from './styled';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: '2px 4px',
     display: 'flex',
     alignItems: 'center',
-    width: 500,
   },
   input: {
     marginLeft: theme.spacing(1),
@@ -41,7 +40,7 @@ const SearchField = () => {
     return (
 
     <Paper component="form" className={classes.root} onSubmit={onSubmitSearch}>
-      <InputBase
+      <StyledInput
         className={classes.input}
         placeholder="Procurar usuário"
         inputProps={{ 'aria-label': 'search google maps' }}
