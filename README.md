@@ -5,6 +5,7 @@ Esse projeto consiste em uma página de buscas para repositórios do GitHub, des
 
 # Página da aplicação: 
 <a href="https://git-uol-carlos.surge.sh/">GitHubFinder</a>
+<a href="test.html" onclick="return ! window.open(this.href);">Open in a new window</a>
 
 # Tecnologias e Bibliotecas utilizadas:
 
