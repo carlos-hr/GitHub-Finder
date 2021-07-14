@@ -5,7 +5,7 @@ Esse projeto consiste em uma página de buscas para repositórios do GitHub, des
 
 # Página da aplicação: 
 <a href="https://git-uol-carlos.surge.sh/">G</a>
-[go](http://stackoverflow.com){:target="_blank"}.
+[go](http://stackoverflow.com){:target="_blank" rel="noopener"}
 
 # Tecnologias e Bibliotecas utilizadas:
 
