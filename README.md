@@ -1,9 +1,11 @@
 # GitHub Finder
 
 
-Esse projeto consiste em uma página de buscas para repositórios do GitHub, desenvolvido consumido a API da própria plataforma.
+Esse projeto consiste em uma página de buscas para repositórios do GitHub, desenvolvido consumido a API da própria plataforma. O projeto foi realizado para participação do processo seletivo da empresa Compasso Uol
 
-#Tecnologias e Bibliotecas utilizadas no desenvolvimento desta aplicação:
+# Link da aplicação: <a>ajaja</a>
+
+# Tecnologias e Bibliotecas utilizadas:
 
 <ul>
 <li>ReactJs;</li>
