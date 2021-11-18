@@ -1,14 +1,14 @@
 export const goToHome = (history) => {
-    history.push("/")
-}
+  history.push("/");
+};
 
 export const goToResults = (history, username) => {
-    history.push(`/${username}`)
-}
+  history.push(`/${username}`);
+};
 export const goToDetails = (history, username, request) => {
-    history.push(`/details/${username}/${request}`)
-}
+  history.push(`/details/${username}/${request}`);
+};
 
 export const goBack = (history) => {
-    history.goBack()
-}
+  history.goBack();
+};

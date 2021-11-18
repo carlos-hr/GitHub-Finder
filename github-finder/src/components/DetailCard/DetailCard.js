@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import { GridContainer, TitleContainer } from './styled';
-import { useHistory, useParams } from 'react-router-dom';
-import { getData } from '../../services/requests';
+import React, { useEffect, useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
+import { GridContainer, TitleContainer } from "./styled";
+import { useHistory, useParams } from "react-router-dom";
+import { getData } from "../../services/requests";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -12,54 +12,50 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     padding: theme.spacing(2),
-    textAlign: 'center',
+    textAlign: "center",
     color: theme.palette.text.secondary,
   },
 }));
 
 const DetailCard = () => {
-    const [localData, setLocalData] = useState([])
-    const history = useHistory()
-    const classes = useStyles();
-    const params = useParams()
+  const [localData, setLocalData] = useState([]);
+  const history = useHistory();
+  const classes = useStyles();
+  const params = useParams();
 
-    useEffect(() => {
-        getData(params.username, params.request, setLocalData, history)
-    }, [])
+  useEffect(() => {
+    getData(params.username, params.request, setLocalData, history);
+  }, []);
 
-    const renderData = localData.map((data) => {
-        return (
-            <Grid item xs={6} key={data.id}>
-                <Paper className={classes.paper}>
-                    <strong>Nome do repositório:</strong> {data.name}
-                    <br/>
-                    <strong>Linguagem: </strong> {data.language}
-                </Paper>
-            </Grid>
-        )
-    })
-   
-    const title = () => {
-        if (params.request === "repos") {
-            return (
-                <TitleContainer>Repositórios do usuário</TitleContainer>
-            )  
-        } else if (params.request === "starred") {
-            return (
-                <TitleContainer>Repositórios mais visitados</TitleContainer>
-            )
-        }
-    }
+  const renderData = localData.map((data) => {
     return (
-        <div>
-            <GridContainer container spacing={2}>
-                <Grid item xs={12}>
-                    <Paper className={classes.paper}>{title()}</Paper>
-                </Grid>
-                {renderData}
-            </GridContainer>
-        </div>
-    )
-}
+      <Grid item xs={6} key={data.id}>
+        <Paper className={classes.paper}>
+          <strong>Nome do repositório:</strong> {data.name}
+          <br />
+          <strong>Linguagem: </strong> {data.language}
+        </Paper>
+      </Grid>
+    );
+  });
 
-export default DetailCard
+  const title = () => {
+    if (params.request === "repos") {
+      return <TitleContainer>Repositórios do usuário</TitleContainer>;
+    } else if (params.request === "starred") {
+      return <TitleContainer>Repositórios mais visitados</TitleContainer>;
+    }
+  };
+  return (
+    <div>
+      <GridContainer container spacing={2}>
+        <Grid item xs={12}>
+          <Paper className={classes.paper}>{title()}</Paper>
+        </Grid>
+        {renderData}
+      </GridContainer>
+    </div>
+  );
+};
+
+export default DetailCard;

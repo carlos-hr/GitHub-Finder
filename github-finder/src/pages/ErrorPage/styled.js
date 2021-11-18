@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const MainContainer = styled.div `
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-top: 8vh;
-`
+export const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 8vh;
+`;
