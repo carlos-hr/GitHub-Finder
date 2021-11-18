@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
@@ -7,22 +6,9 @@ import useForm from "../../hooks/useForm";
 import GlobalStateContext from "../../global/GlobalStateContext";
 import { goToResults } from "../../routes/coordinator";
 import { useHistory } from "react-router-dom";
-import { StyledInput } from "./styled";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    padding: "2px 4px",
-    display: "flex",
-    alignItems: "center",
-  },
-  input: {
-    marginLeft: theme.spacing(1),
-    flex: 1,
-  },
-  iconButton: {
-    padding: 10,
-  },
-}));
+import { useStyles } from "../../material-styles/SearchField";
+import CloseIcon from "@material-ui/icons/Close";
+import InputBase from "@material-ui/core/InputBase";
 
 const SearchField = () => {
   const classes = useStyles();
@@ -37,16 +23,23 @@ const SearchField = () => {
     goToResults(history, form);
   };
 
+  const clearField = () => {
+    clear();
+  };
   return (
     <Paper component="form" className={classes.root} onSubmit={onSubmitSearch}>
-      <StyledInput
+      <InputBase
         className={classes.input}
         placeholder="Procurar usuário"
-        inputProps={{ "aria-label": "search google maps" }}
+        inputProps={{ "aria-label": "search user" }}
         onChange={onChange}
         value={form}
         required
+        width="400"
       />
+      <IconButton onClick={clearField} className={classes.iconButton}>
+        <CloseIcon />
+      </IconButton>
       <IconButton
         type="submit"
         className={classes.iconButton}
