@@ -13,14 +13,15 @@ const SearchedCard = () => {
   const { user, setUser, setUserData } = useContext(GlobalStateContext);
   const params = useParams();
   const history = useHistory();
-
+  const { username } = params;
+  
   const onClickDetail = (username, request, setUserData, history) => {
     getData(username, request, setUserData, history);
   };
 
   useEffect(() => {
-    getUser(params.username, setUser);
-  }, []);
+    getUser(username, setUser);
+  }, [username, setUser]);
 
   const renderUser = () => {
     if (user === null) {
@@ -48,7 +49,7 @@ const SearchedCard = () => {
               size="small"
               color="primary"
               onClick={() =>
-                onClickDetail(params.username, "repos", setUserData, history)
+                onClickDetail(username, "repos", setUserData, history)
               }
             >
               Repos
@@ -57,7 +58,7 @@ const SearchedCard = () => {
               size="small"
               color="primary"
               onClick={() =>
-                onClickDetail(params.username, "starred", setUserData, history)
+                onClickDetail(username, "starred", setUserData, history)
               }
             >
               Starred

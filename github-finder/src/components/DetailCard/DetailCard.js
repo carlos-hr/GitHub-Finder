@@ -22,10 +22,11 @@ const DetailCard = () => {
   const history = useHistory();
   const classes = useStyles();
   const params = useParams();
-
+  const { username, request } = params;
+  
   useEffect(() => {
-    getData(params.username, params.request, setLocalData, history);
-  }, []);
+    getData(username, request, setLocalData, history);
+  }, [history, request, username]);
 
   const renderData = localData.map((data) => {
     return (

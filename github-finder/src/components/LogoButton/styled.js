@@ -1,10 +1,6 @@
 import styled from "styled-components";
 import { secondaryColor } from "../../constants/colors";
 
-export const Logo = styled.img`
-  width: 80px;
-`;
-
 export const LogoContainer = styled.div`
   display: flex;
   width: 20vw;
