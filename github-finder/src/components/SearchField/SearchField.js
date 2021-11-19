@@ -1,14 +1,12 @@
 import React, { useContext } from "react";
-import Paper from "@material-ui/core/Paper";
-import IconButton from "@material-ui/core/IconButton";
+import {IconButton, InputBase, Paper} from "@material-ui/core";
+import CloseIcon from "@material-ui/icons/Close";
 import SearchIcon from "@material-ui/icons/Search";
 import useForm from "../../hooks/useForm";
 import GlobalStateContext from "../../global/GlobalStateContext";
 import { goToResults } from "../../routes/coordinator";
 import { useHistory } from "react-router-dom";
-import { useStyles } from "../../material-styles/SearchField";
-import CloseIcon from "@material-ui/icons/Close";
-import InputBase from "@material-ui/core/InputBase";
+import { useStyles } from "../../styles/SearchField";
 
 const SearchField = () => {
   const classes = useStyles();

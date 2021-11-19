@@ -1,16 +1,22 @@
 import React from "react";
 import SearchField from "../../components/SearchField/SearchField";
 import SearchedCard from "../../components/SearchedCard/SearchedCard";
-import { HomeContainer } from "./styled";
 import LogoButton from "../../components/LogoButton/LogoButton";
+import { Box } from "@material-ui/core";
 
 const SearchResultPage = () => {
   return (
-    <HomeContainer>
+    <Box
+      display="flex"
+      flexDirection="column"
+      justifyContent="center"
+      alignItems="center"
+      pt={8}
+    >
       <LogoButton />
       <SearchField />
       <SearchedCard />
-    </HomeContainer>
+    </Box>
   );
 };
 

@@ -4,12 +4,12 @@ import { useHistory } from "react-router-dom";
 import GlobalStateContext from "../../global/GlobalStateContext";
 import GithubIcon from "../../assets/GithubIcon";
 import { Box } from "@material-ui/core";
-import { secondaryColor } from "../../constants/colors";
+import { useStyles } from "../../styles/LogoButton";
 
 const LogoButton = () => {
   const history = useHistory();
   const { setUser } = useContext(GlobalStateContext);
-
+  const classes = useStyles()
   const onClickLogo = (history, setUser) => {
     goToHome(history);
     setUser(null);
@@ -17,13 +17,8 @@ const LogoButton = () => {
 
   return (
     <Box
-      alignItems="center"
-      width="30%"
-      display="flex"
-      color={secondaryColor}
-      fontSize={40}
-      fontWeight="fontWeightBold"
-      justifyContent="center"
+      className={classes.box}
+      style={{ cursor: "pointer" }}
       onClick={() => onClickLogo(history, setUser)}
     >
       <Box>
