@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import GlobalStateContext from "../../global/GlobalStateContext";
 import GithubIcon from "../../assets/GithubIcon";
 import { Box } from "@material-ui/core";
-import { useStyles } from "../../styles/LogoButton";
+import { useStyles } from "../../styles/components/LogoButton";
 
 const LogoButton = () => {
   const history = useHistory();

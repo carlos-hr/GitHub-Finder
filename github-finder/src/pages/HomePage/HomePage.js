@@ -2,16 +2,13 @@ import React from "react";
 import SearchField from "../../components/SearchField/SearchField";
 import LogoButton from "../../components/LogoButton/LogoButton";
 import { Box } from "@material-ui/core";
+import { useStyles } from "../../styles/pages/HomePage";
 
 const HomePage = () => {
+  const classes = useStyles();
+
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      justifyContent="center"
-      alignItems="center"
-      height="41vh"
-    >
+    <Box className={classes.root}>
       <LogoButton />
       <SearchField />
     </Box>

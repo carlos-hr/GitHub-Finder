@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useStyles } from "../../styles/DetailCard";
+import { useStyles } from "../../styles/components/DetailCard";
 import { Grid, Paper, Typography } from "@material-ui/core";
 import { useHistory, useParams } from "react-router-dom";
 import { getData } from "../../services/requests";

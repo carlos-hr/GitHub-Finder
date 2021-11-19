@@ -6,7 +6,7 @@ import useForm from "../../hooks/useForm";
 import GlobalStateContext from "../../global/GlobalStateContext";
 import { goToResults } from "../../routes/coordinator";
 import { useHistory } from "react-router-dom";
-import { useStyles } from "../../styles/SearchField";
+import { useStyles } from "../../styles/components/SearchField";
 
 const SearchField = () => {
   const classes = useStyles();

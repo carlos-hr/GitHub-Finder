@@ -3,16 +3,12 @@ import SearchField from "../../components/SearchField/SearchField";
 import SearchedCard from "../../components/SearchedCard/SearchedCard";
 import LogoButton from "../../components/LogoButton/LogoButton";
 import { Box } from "@material-ui/core";
+import { useStyles } from "../../styles/pages/SearchResultPage";
 
 const SearchResultPage = () => {
+  const classes = useStyles();
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      justifyContent="center"
-      alignItems="center"
-      pt={8}
-    >
+    <Box className={classes.root}>
       <LogoButton />
       <SearchField />
       <SearchedCard />

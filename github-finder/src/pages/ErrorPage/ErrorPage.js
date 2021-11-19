@@ -1,10 +1,13 @@
+import { Box } from "@material-ui/core";
 import React from "react";
 import LogoButton from "../../components/LogoButton/LogoButton";
-import { MainContainer } from "./styled";
+import { useStyles } from "../../styles/pages/ErrorPage";
 
 const ErrorPage = () => {
+  const classes = useStyles();
+
   return (
-    <MainContainer>
+    <Box className={classes.root}>
       <LogoButton />
       <img
         src="https://media1.giphy.com/media/UHAYP0FxJOmFBuOiC2/giphy.gif"
@@ -15,7 +18,7 @@ const ErrorPage = () => {
         allowFullScreen
         alt="Erro"
       />
-    </MainContainer>
+    </Box>
   );
 };
 

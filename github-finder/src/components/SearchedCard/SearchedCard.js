@@ -11,7 +11,7 @@ import {
   CircularProgress,
   Typography,
 } from "@material-ui/core";
-import { useStyles } from "../../styles/SearchedCard";
+import { useStyles } from "../../styles/components/SearchedCard";
 
 const SearchedCard = () => {
   const { user, setUser, setUserData } = useContext(GlobalStateContext);

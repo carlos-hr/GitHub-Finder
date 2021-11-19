@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core";
-import { secondaryColor } from "./colors";
+import { secondaryColor } from "../colors";
 
 export const useStyles = makeStyles(() => ({
   box: {
