@@ -7,6 +7,7 @@ import { useStyles } from "../../styles/pages/SearchResultPage";
 
 const SearchResultPage = () => {
   const classes = useStyles();
+
   return (
     <Box className={classes.root}>
       <LogoButton />

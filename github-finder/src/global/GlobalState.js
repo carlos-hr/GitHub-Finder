@@ -6,11 +6,12 @@ const GlobalState = (props) => {
   const [user, setUser] = useState(null);
   const [username, setUsername] = useState(null);
   const [userData, setUserData] = useState(null);
+  const data = { user, setUser, username, setUsername, userData, setUserData };
   
   useEffect(() => {
     getUser(username, setUser);
   }, [username]);
-  const data = { user, setUser, username, setUsername, userData, setUserData };
+  
 
   return (
     <GlobalStateContext.Provider value={data}>

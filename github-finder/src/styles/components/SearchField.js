@@ -6,11 +6,12 @@ export const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     marginTop: "5vh",
+    borderRadius: "50px",
   },
   input: {
     marginLeft: theme.spacing(1),
     flex: 1,
-    width: "40vw",
+    width: "30vw",
   },
   iconButton: {
     padding: 10,
