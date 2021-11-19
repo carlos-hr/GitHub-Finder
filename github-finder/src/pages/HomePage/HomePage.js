@@ -1,14 +1,17 @@
 import React from "react";
 import SearchField from "../../components/SearchField/SearchField";
-import { HomeContainer } from "./styled";
 import LogoButton from "../../components/LogoButton/LogoButton";
+import { Box } from "@material-ui/core";
+import { useStyles } from "../../styles/pages/HomePage";
 
 const HomePage = () => {
+  const classes = useStyles();
+
   return (
-    <HomeContainer>
+    <Box className={classes.root}>
       <LogoButton />
       <SearchField />
-    </HomeContainer>
+    </Box>
   );
 };
 

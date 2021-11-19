@@ -1,14 +1,17 @@
 import React from "react";
-import { DetailsContainer } from "./styled";
 import DetailCard from "../../components/DetailCard/DetailCard";
 import LogoButton from "../../components/LogoButton/LogoButton";
+import { Box } from "@material-ui/core";
+import { useStyles } from "../../styles/pages/DetailsPage";
 
 const DetailsPage = () => {
+  const classes = useStyles();
+  
   return (
-    <DetailsContainer>
+    <Box className={classes.root}>
       <LogoButton />
       <DetailCard />
-    </DetailsContainer>
+    </Box>
   );
 };
 

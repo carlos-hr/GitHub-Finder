@@ -1,24 +1,31 @@
 import React, { useContext } from "react";
-import { LogoContainer } from "./styled";
 import { goToHome } from "../../routes/coordinator";
 import { useHistory } from "react-router-dom";
 import GlobalStateContext from "../../global/GlobalStateContext";
 import GithubIcon from "../../assets/GithubIcon";
+import { Box } from "@material-ui/core";
+import { useStyles } from "../../styles/components/LogoButton";
 
 const LogoButton = () => {
   const history = useHistory();
   const { setUser } = useContext(GlobalStateContext);
-
+  const classes = useStyles()
   const onClickLogo = (history, setUser) => {
     goToHome(history);
     setUser(null);
   };
 
   return (
-    <LogoContainer onClick={() => onClickLogo(history, setUser)}>
-      <GithubIcon  width="150"/>
-      GitHub Finder
-    </LogoContainer>
+    <Box
+      className={classes.box}
+      style={{ cursor: "pointer" }}
+      onClick={() => onClickLogo(history, setUser)}
+    >
+      <Box>
+        <GithubIcon width="100" height="100" />
+      </Box>
+      <Box pl={5}>GitHub Finder</Box>
+    </Box>
   );
 };
 
