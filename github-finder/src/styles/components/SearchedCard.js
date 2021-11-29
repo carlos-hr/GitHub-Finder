@@ -9,6 +9,10 @@ export const useStyles = makeStyles(() => ({
     marginBottom: "2vh",
   },
   p: {
-    color: "white",
+    marginTop: "5vh",
+    fontSize: "16px",
+  },
+  loader: {
+    marginTop: "10vh",
   },
 }));

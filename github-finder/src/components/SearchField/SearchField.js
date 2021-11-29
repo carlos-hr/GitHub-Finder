@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import {IconButton, InputBase, Paper} from "@material-ui/core";
+import { IconButton, InputBase, Paper } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
 import SearchIcon from "@material-ui/icons/Search";
 import useForm from "../../hooks/useForm";
@@ -12,13 +12,14 @@ const SearchField = () => {
   const classes = useStyles();
   const history = useHistory();
   const [form, onChange, clear] = useForm([]);
-  const { setUsername } = useContext(GlobalStateContext);
+  const { setUser, setUsername } = useContext(GlobalStateContext);
 
   const onSubmitSearch = (e) => {
     e.preventDefault();
-    clear();
+    setUser(null);
     setUsername(form);
     goToResults(history, form);
+    clear();
   };
 
   const clearField = () => {
@@ -33,7 +34,6 @@ const SearchField = () => {
         onChange={onChange}
         value={form}
         required
-        width="400"
       />
       <IconButton onClick={clearField} className={classes.iconButton}>
         <CloseIcon />

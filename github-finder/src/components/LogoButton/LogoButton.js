@@ -8,8 +8,9 @@ import { useStyles } from "../../styles/components/LogoButton";
 
 const LogoButton = () => {
   const history = useHistory();
-  const { setUser } = useContext(GlobalStateContext);
   const classes = useStyles()
+  const { setUser } = useContext(GlobalStateContext);
+  
   const onClickLogo = (history, setUser) => {
     goToHome(history);
     setUser(null);

@@ -1,8 +1,10 @@
 import React, { useContext, useEffect } from "react";
 import GlobalStateContext from "../../global/GlobalStateContext";
 import { useHistory, useParams } from "react-router-dom";
-import { getData, getUser } from "../../services/requests";
+import { getData } from "../../services/requests";
+import Alert from "@material-ui/lab/Alert";
 import {
+  Box,
   Button,
   Card,
   CardActions,
@@ -14,7 +16,7 @@ import {
 import { useStyles } from "../../styles/components/SearchedCard";
 
 const SearchedCard = () => {
-  const { user, setUser, setUserData } = useContext(GlobalStateContext);
+  const { user, setUserData, setUsername } = useContext(GlobalStateContext);
   const params = useParams();
   const history = useHistory();
   const { username } = params;
@@ -24,17 +26,17 @@ const SearchedCard = () => {
   };
 
   useEffect(() => {
-    getUser(username, setUser);
-  }, [username, setUser]);
+    setUsername(username);
+  }, [username, setUsername]);
 
   const renderUser = () => {
     if (user === null) {
       return (
-        <div>
-          <CircularProgress />
-        </div>
+        <Box className={classes.loader}>
+          <CircularProgress color="secondary" size={60} />
+        </Box>
       );
-    } else if (user) {
+    } else if (user && user.avatar_url) {
       return (
         <Card className={classes.card}>
           <CardMedia>
@@ -72,16 +74,16 @@ const SearchedCard = () => {
       );
     } else if (user === false) {
       return (
-        <div>
-          <Typography component="p" className={classes.p}>
+        <Box>
+          <Alert severity="error" className={classes.p}>
             Usuário não encontrado
-          </Typography>
-        </div>
+          </Alert>
+        </Box>
       );
     }
   };
 
-  return <div>{renderUser()}</div>;
+  return <Box>{renderUser()}</Box>;
 };
 
 export default SearchedCard;
