@@ -1,9 +1,6 @@
 import axios from "axios";
 import { BASE_URL } from "../constants/urls";
 import { goToDetails } from "../routes/coordinator";
-import dotenv from "dotenv";
-
-dotenv.config();
 
 const header = {
   headers: {
@@ -18,7 +15,7 @@ export const getData = (username, request, setUserData, history) => {
       setUserData(res.data);
       goToDetails(history, username, request);
     })
-    .catch((err) => {
+    .catch(() => {
       setUserData(false);
     });
 };
